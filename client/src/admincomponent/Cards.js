@@ -85,7 +85,7 @@ function Cards(props) {
         component="img"
         alt={props.nameofplace}
         height="140"
-        src={`http://localhost:8000/uploads/files/${props.img}`}
+        src={`https://cospace-mern-app.onrender.com/uploads/files/${props.img}`}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
