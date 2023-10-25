@@ -1,0 +1,97 @@
+.register{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://assets.architecturaldigest.in/photos/60084f36f93542952b665f23/master/w_960,c_limit/Westend61-getty-images-coronavirus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register_container{
+    box-shadow: 1px 1px 10px rgb(110, 108, 108);
+    height: fit-content;
+    width: fit-content;
+   
+    background-color: white;
+   padding: 40px;
+}
+.register_avatar{
+
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+
+
+.register_email,.register_password,.register_username{
+    margin-top: 5px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+}
+ .register_gender{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px ;
+ 
+    padding: 10px 0 0 0;
+ }
+
+ .register_gender input{
+    accent-color: #9c27b0;
+ }
+
+.btn_register{
+    width: 200px;
+display: flex;
+justify-content: center;
+width: 100%;
+padding: 10px 0;
+margin-top: 15px;
+
+}
+
+.btn{
+    width: 85%;
+    background-color: purple;
+}
+.or{
+position: relative;
+top: 29px;
+border: 1px solid lightgray;
+left: 50%;
+}
+
+.hr{
+margin-top: 18px;
+line-height: 100%;
+}
+
+.btn_icon{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+justify-content: center;
+    padding: 10px 0;
+}
+
+
+.forget_passwordsignup{
+display: flex;
+justify-content: center;
+flex-direction: column;
+
+align-items: center;
+font-size:medium;
+margin-top:5px ;
+padding: 3px 0;
+
+}
+.forget_passwordsignup > a,span >a{
+    text-decoration: none;
+}

@@ -1,0 +1,52 @@
+.adminlogin{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://assets.architecturaldigest.in/photos/60084f36f93542952b665f23/master/w_960,c_limit/Westend61-getty-images-coronavirus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.adminlogin_container{
+    box-shadow: 1px 1px 10px rgb(110, 108, 108);
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+    background-color: white;
+   padding: 40px;
+}
+.adminlogin_avatar{
+
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+
+
+.adminlogin_email,.adminlogin_password{
+    
+    margin: 5px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_adminlogin{
+    width: 200px;
+display: flex;
+justify-content: center;
+width: 100%;
+padding: 10px 0;
+margin-top: 15px;
+
+}
+
+.btn{
+    width: 100%;
+    background-color: purple;
+}
+
+

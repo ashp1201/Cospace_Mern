@@ -1,0 +1,75 @@
+.user-info-container{
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    margin-top: 3vh;
+}
+.user-info-container > .box{
+
+width: fit-content;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+border-radius: 20px;
+box-shadow: 1px 1px 10px grey;
+}
+
+.box img{
+    width: 50px;
+    margin: 10px 5px;
+}
+
+.box h3{
+
+}
+.box p{
+    padding: 2px;
+    margin: 10px 5px;
+}
+.user-info-table{
+    display: flex;
+    flex-grow: 1; 
+    margin-top: 20px;
+    margin: 20px 10px;
+    flex-direction: column;
+}
+.user-info-table > .mainrow, .userrow{
+display: flex;
+flex-grow: 1;
+
+width: 100%;
+align-items: center;
+}
+.child,.childemail,.childlocation{
+    display: flex;
+    border: 0.2px solid black;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    white-space: normal;
+}
+.child{
+    width: 13%;
+}
+.childemail{
+    width: 42%;
+}
+.childlocation{
+    width: 20%;
+}
+
+.actions{
+    display: flex;
+
+}
+
+.nouserfound{
+    margin-top:50px ;
+    width: 100%;
+    text-align: center;
+
+}

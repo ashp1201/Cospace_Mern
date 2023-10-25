@@ -1,0 +1,21 @@
+
+
+.visible{
+    position: absolute;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    flex-shrink: 1;
+    
+}
+.invisible{
+    display: none;
+    
+}
+.sidebar-menulist{
+    width: 100%;
+}
+.menucontent{
+    width: 100%;
+    text-align: center;
+}
