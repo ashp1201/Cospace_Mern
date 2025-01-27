@@ -53,7 +53,7 @@ app.use(morgan('tiny'));
 app.disable('x-powered-by');
 
 
-const port =8000;
+const port = process.env.PORT || 8000;
 
 
 /* Htttp get Request */
@@ -78,7 +78,7 @@ app.use('/uploads/files/', express.static(process.cwd() + '/uploads/files/'));
 connect().then(() =>{
     try{
         app.listen(port,()=>{
-            console.log(`Server connected to ${process.env.PORT}`)
+            console.log(`Server connected to ${port}`)
             })
             
 
