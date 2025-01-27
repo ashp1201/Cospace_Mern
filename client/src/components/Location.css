@@ -1,0 +1,19 @@
+
+.location_header{
+background: #000;
+color: white;
+text-align: center;
+font-weight: 800;
+letter-spacing: 0.3rem;
+font-size: xx-large;
+
+}
+
+.location_card{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    margin-left: 10px;
+    margin-right: 10px;
+}

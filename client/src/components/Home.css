@@ -1,0 +1,145 @@
+.home{
+    width: 100%;
+    margin: auto;
+}
+.home_container{
+    display: flex;
+    align-self: center;
+    position: relative;
+}
+
+
+.home_image{
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -150px;
+    /* mask-image: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)); */
+
+}
+
+.Arrow_Backward{
+cursor: pointer;
+position: absolute;
+left: 0.5vw;
+top:0%;
+z-index: 1;
+padding: 15% 4px;
+color: black;
+}
+
+.Arrow_Forward{
+cursor: pointer;
+position: absolute;
+right: 0.5vw;
+top:0%;
+z-index: 1;
+padding: 15% 4px;
+color:rgb(134, 128, 128);
+}
+.cards{
+display: flex;
+flex-direction: column;
+margin-top: 120px;
+}
+.Header_card{
+    background-color:black;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+.all_cards{
+display: flex;
+
+justify-content: space-evenly;
+margin:5px 5px ;
+flex-wrap: wrap;
+}
+
+
+.head{
+    padding: 10px;
+    margin-top: 5px;
+    background: black;
+    color: white;
+    text-align: center;
+}
+.facilaties{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+.f1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.f1_1{
+    margin: 2px;
+    padding: 5px;
+}
+.f1_1:hover{
+    color:#9c27b0;
+    cursor: pointer;
+}
+.pricing_for_user{
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    margin-top: 10px;
+
+}
+.pricing_for_user > card{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+
+}
+.pricing_for_user > card >h3{
+background:#9c27b0 ;
+width: 100%;
+text-align: center;
+border-radius: 5px;
+padding: 3px 0;
+
+}
+.pricing_for_user > card >span{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+.pricing_for_user > card >span>h1{
+margin-left: 5px;
+margin-top: 5px;
+}
+
+.pricing_for_user > card >p{
+    width: 100%;
+    padding: 2px 3px;
+    text-align: center;
+    color: rgb(50, 48, 48);
+    font-size: small;
+    margin-top: 5px;
+}
+
+.pricing_for_user > card >button{
+    width: 80%;
+    padding: 5px 0;
+    margin: 15px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.pricing_for_user > card >button:hover{
+    color: #9c27b0;
+    border: #9c27b0 0.5px solid;
+}
+
+
+
