@@ -1,0 +1,27 @@
+.card-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 5px;
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+    background: rgba(255, 255, 255, 1); /* Fully white on hover */
+  }
+  
+  .edit-button svg,
+  .delete-button svg {
+    font-size: 1.2rem; /* Adjust icon size */
+    color: #333; /* Icon color */
+  }
+  
