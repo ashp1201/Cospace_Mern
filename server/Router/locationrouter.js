@@ -37,4 +37,10 @@ locationRouter
 // Route for getting locations by user type
 locationRouter.get('/getlocation', controller.getLocationsByUserType);
 
+// Route for deleting a location
+locationRouter.delete('/deletelocation/:id', controller.deleteLocation);
+
+
+locationRouter.put('/updatelocation/:id', controller.updateLocation);  // PUT route for updating the location
+
 export default locationRouter;
