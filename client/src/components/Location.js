@@ -1,59 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import Cards from '../admincomponent/Cards';
+import Cards from './CardsView';
 import { getlocation } from '../helper/helper';
 import './Location.css';
 import { useLocation } from 'react-router-dom';
 
 function Location() {
   const location = useLocation();
-  const amount = location.state ? location.state.amount : null;
+  const amount = location.state ? location.state.amount : null; // Get the amount from the location state
 
-  const [freeLocations, setFreeLocations] = useState([]);
-  const [basicLocations, setBasicLocations] = useState([]);
-  const [advanceLocations, setAdvanceLocations] = useState([]);
+  const [locations, setLocations] = useState({
+    free: [],
+    basic: [],
+    advance: [],
+  });
 
   useEffect(() => {
-    // Fetch locations for free users by default
-    getlocation({ user_type: 'free' })
-      .then(data => {
-        setFreeLocations(data);
-        console.log(data);
-      })
-      .catch(error => {
-        console.error('Error fetching free data:', error);
-      });
+    // Function to fetch location data based on user type
+    const fetchLocations = async (userType) => {
+      try {
+        const data = await getlocation({ user_type: userType });
+        setLocations((prevLocations) => ({
+          ...prevLocations,
+          [userType]: data,
+        }));
+      } catch (error) {
+        console.error(`Error fetching ${userType} data:`, error);
+      }
+    };
 
-    // Fetch locations for basic users if the amount is 399
-    if (amount === 399  || amount === 999) {
-      getlocation({ user_type: 'basic' })
-        .then(data => {
-          setBasicLocations(data);
-        })
-        .catch(error => {
-          console.error('Error fetching basic data:', error);
-        });
+    // Always fetch for free users
+    fetchLocations('free');
+
+    // Fetch for basic users if the amount is 399 or 999
+    if (amount === 399 || amount === 999) {
+      fetchLocations('basic');
     }
 
-    // Fetch locations for advance users if the amount is 999
+    // Fetch for advance users if the amount is 999
     if (amount === 999) {
-      getlocation({ user_type: 'advance' })
-        .then(data => {
-          setAdvanceLocations(data);
-        })
-        .catch(error => {
-          console.error('Error fetching advance data:', error);
-        });
+      fetchLocations('advance');
     }
-  }, [amount]);
+  }, [amount]); // Re-run if amount changes
 
   return (
-    <div className='location'>
+    <div className="location">
       {/* Display free user cards */}
       <div className="location_header">This is free tier Users</div>
       <div className="location_card">
-        {freeLocations.map(location => (
+        {locations.free.map((location) => (
           <Cards
-            key={location.id}
+            key={location._id}
             nameofplace={location.name_location}
             space={location.space_location}
             img={location.photo}
@@ -61,20 +57,20 @@ function Location() {
             description={location.description}
             price={location.amount}
             latitude={location.latitude}
-              longitude={location.longitude}
-              userType='free'
+            longitude={location.longitude}
+            userType="free"
           />
         ))}
       </div>
 
-      {/* Display basic user cards if amount is 399 */}
+      {/* Display basic user cards if amount is 399 or 999 */}
       {(amount === 399 || amount === 999) && (
-        <div>
+        <>
           <div className="location_header">This is Basic tier Users</div>
           <div className="location_card">
-            {basicLocations.map(location => (
+            {locations.basic.map((location) => (
               <Cards
-                key={location.id}
+                key={location._id}
                 nameofplace={location.name_location}
                 space={location.space_location}
                 img={location.photo}
@@ -82,22 +78,22 @@ function Location() {
                 description={location.description}
                 price={location.amount}
                 latitude={location.latitude}
-              longitude={location.longitude}
-              userType='basic'
+                longitude={location.longitude}
+                userType="basic"
               />
             ))}
           </div>
-        </div>
+        </>
       )}
 
       {/* Display advance user cards if amount is 999 */}
-      {amount=== 999 && (
-        <div>
+      {amount === 999 && (
+        <>
           <div className="location_header">This is Advance tier Users</div>
           <div className="location_card">
-            {advanceLocations.map(location => (
+            {locations.advance.map((location) => (
               <Cards
-                key={location.id}
+                key={location._id}
                 nameofplace={location.name_location}
                 space={location.space_location}
                 img={location.photo}
@@ -105,12 +101,12 @@ function Location() {
                 description={location.description}
                 price={location.amount}
                 latitude={location.latitude}
-              longitude={location.longitude}
-              userType='advance'
+                longitude={location.longitude}
+                userType="advance"
               />
             ))}
           </div>
-        </div>
+        </>
       )}
     </div>
   );
