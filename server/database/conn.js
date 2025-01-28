@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import {MongoMemoryServer} from "mongodb-memory-server";
+//import {MongoMemoryServer} from "mongodb-memory-server";
 // import ENV from '../config.js'
 import dotenv from 'dotenv';
 
@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 async function connect(){
 const mongod =await MongoMemoryServer.create();
 //create new mongodb instance when we create server
-const getUri =mongod.getUri();
+//const getUri =mongod.getUri();
 dotenv.config();
 // const db=await mongoose.connect(getUri);
 const db =  await mongoose.connect(process.env.ATLAS_URI, {
