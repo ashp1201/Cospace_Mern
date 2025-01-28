@@ -27,18 +27,29 @@ function Cards(props) {
     longitude: props.longitude,
   });
 
-  const handleOpenMap = () => {
-    const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${props.latitude}&lon=${props.longitude}`;
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        setLocationData(data.display_name || 'Location not found');
-        setMapOpen(true);
-      })
-      .catch((error) => console.error('Error fetching location:', error));
-  };
+// Function to open the map pop-up
+const handleOpenMap = () => {
+  const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${props.latitude}&lon=${props.longitude}`;
 
-  const handleCloseMap = () => setMapOpen(false);
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.display_name) {
+        setLocationData(data.display_name); // Store location data
+      } else {
+        console.error('Location not found');
+      }
+      setMapOpen(true); // Open the map pop-up
+    })
+    .catch((error) => {
+      console.error('Error fetching location:', error);
+    });
+};
+
+// Function to close the map pop-up
+const handleCloseMap = () => {
+  setMapOpen(false);
+};
 
   const handleDelete = async () => {
     try {
@@ -154,7 +165,11 @@ function Cards(props) {
         </>
       )}
 
-      <MapPopup open={isMapOpen} onClose={handleCloseMap} locationData={locationData} />
+      <MapPopup open={isMapOpen}
+        onClose={handleCloseMap}
+        locationData={locationData}
+        latitude={props.latitude}
+        longitude={props.longitude}/>    
     </Card>
   );
 }
