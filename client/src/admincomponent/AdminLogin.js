@@ -33,8 +33,8 @@ const Adminadminlogin = () => {
         .then((res) => {
           const { token } = res.data;
           const expirationDate = new Date();
-          expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000);
-          document.cookie = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+          expirationDate.setTime(expirationDate.getTime() + 20 * 60 * 1000);
+          document.cookie = `tokenAdmin=${token}; expires=${expirationDate.toUTCString()}; path=/`;
           setTimeout(() => navigate('/admin/dashboard'), 1000);
         })
         .catch((error) => {
