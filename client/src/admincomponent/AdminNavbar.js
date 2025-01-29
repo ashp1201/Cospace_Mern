@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function AdminNavbar({ toggleSidebar }) {
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null); // Create a ref for the dropdown element
-    const [token, setToken] = React.useState('');
+    const [tokenAdmin, setToken] = React.useState('');
     const navigate = useNavigate();
 
     // Create a ref for the menu bar button
@@ -38,7 +38,7 @@ function AdminNavbar({ toggleSidebar }) {
         for (const cookie of cookies) {
             const [name, value] = cookie.trim().split('=');
 
-            if (name === 'token') {
+            if (name === 'tokenAdmin') {
                 // Check for the "token" cookie
                 setToken(decodeURIComponent(value));
                 break;
@@ -49,7 +49,7 @@ function AdminNavbar({ toggleSidebar }) {
     function adminLogout() {
       console.log("Logout button clicked");
         const pastExpirationDate = new Date(0).toUTCString(); // A date in the past
-        document.cookie = `token=; expires=${pastExpirationDate}; path=/`;
+        document.cookie = `tokenAdmin=; expires=${pastExpirationDate}; path=/`;
 
         setToken('');
 
