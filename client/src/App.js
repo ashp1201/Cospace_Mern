@@ -19,6 +19,7 @@ import ViewLocation from './admincomponent/ViewLocation';
 import UserInfo from './admincomponent/UserInfo';
 import Adminlogin from './admincomponent/AdminLogin';
 import Location from './components/Location';
+import ProtectedRoute from './middleware/ProtectedRoute';
 
 
 /*auth middleware */
@@ -69,18 +70,16 @@ const router=createBrowserRouter([
   },
   {
     path: '/admin',
-    element: <><Adminlogin/></>,
+    element: <Adminlogin />,
   },
   {
     path: '/admin/dashboard',
-    element: <><AdminDashboard/><UserInfo/></>,
-  },{
-    path: '/admin/dashboard/addlocation',
-    element: <><AdminDashboard/><Addlocation/></>,
-  },
-  {
-    path: '/admin/dashboard/viewlocation',
-    element: <><AdminDashboard/><ViewLocation/></>,
+    element: <ProtectedRoute />,
+    children: [
+      { path: '', element: <><AdminDashboard /><UserInfo /></> },
+      { path: 'addlocation', element: <><AdminDashboard /><Addlocation /></> },
+      { path: 'viewlocation', element: <><AdminDashboard /><ViewLocation /></> },
+    ],
   },
 
 ])
